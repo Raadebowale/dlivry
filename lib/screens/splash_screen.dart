@@ -1,4 +1,8 @@
+import 'package:dlivry/routes/route_path.dart';
 import 'package:flutter/material.dart';
+
+// import '../utils/app_colors.dart';
+import '../utils/app_images.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -9,26 +13,44 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  initState() {
+    super.initState();
+    navigate();
+  }
+
+  navigate() async {
+    await Future.delayed(const Duration(seconds: 7));
+    if (mounted) {
+      Navigator.pushReplacementNamed(context, RoutePath.onboarding);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(color: Color.fromRGBO(103, 65, 255, 1)),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const <Widget>[
             Image(
-              image: AssetImage("assetName"),
+              width: 230,
+              height: 230,
+              image: AssetImage(AppImages.appLogo),
             ),
-            Text(
-              'dlivry',
+            /* Text(
+              'DLIVRY',
               style: TextStyle(
-                color: Colors.white,
-                fontSize: 30.0,
-                fontWeight: FontWeight.w700,
+                color: AppColors.textBlack,
+                fontSize: 45.0,
+                fontWeight: FontWeight.w900,
+                fontFamily: "SpaceAge",
               ),
-            )
+            ), */
           ],
         ),
       ),
