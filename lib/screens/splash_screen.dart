@@ -1,8 +1,9 @@
 import 'package:dlivry/routes/route_path.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import '../widgets/app_logo.dart';
 // import '../utils/app_colors.dart';
-import '../utils/app_images.dart';
+// import '../utils/app_images.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,8 +29,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(toolbarHeight: 0,systemOverlayStyle: SystemUiOverlayStyle(),),
       body: Container(
         width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
@@ -37,11 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const <Widget>[
-            Image(
-              width: 230,
-              height: 230,
-              image: AssetImage(AppImages.appLogo),
-            ),
+            AppLogo(size: 230),
             /* Text(
               'DLIVRY',
               style: TextStyle(

@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dlivry'),
+        title: const Text('Dlivry'),
       ),
       body: Center(
         child: Column(
@@ -36,11 +36,11 @@ class HomeScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Display ongoing deliveries with tracking information
             // You can use ListView or any other suitable widget here
-            Text('Delivery 1'),
-            Text('Delivery 2'),
+            const Text('Delivery 1'),
+            const Text('Delivery 2'),
           ],
         ),
       ),
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: HomeScreen(),
   ));
 }

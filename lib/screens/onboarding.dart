@@ -1,6 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:dlivry/routes/route_path.dart';
 import 'package:dlivry/utils/app_colors.dart';
 import 'package:dlivry/utils/app_images.dart';
-import 'package:flutter/material.dart';
+
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../widgets/long_button.dart';
 
 class Onboading extends StatelessWidget {
   const Onboading({super.key});
@@ -39,7 +44,9 @@ class Onboading extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, RoutePath.login);
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
                           backgroundColor: AppColors.primary,
@@ -68,6 +75,15 @@ class Onboading extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    /* SmoothPageIndicator(
+                      controller: PageController(initialPage: 0),
+                      count: 3,
+                      effect: WormEffect(),
+                    ), */
+                    /* DotsIndicator(
+                        dotsCount: 10,
+                        position: 2,
+                    ), */
                     const SizedBox(height: 15),
                     const Text(
                       "Best package\ndelivery just for you",
@@ -88,24 +104,10 @@ class Onboading extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 25),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 50.0,
-                        width: size.width * 0.8,
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Next',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
+                    LongButton(
+                      onpressed: () {},
+                      text: 'Next',
+                      width: size.width * 0.8,
                     )
                   ],
                 ),
