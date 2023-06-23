@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "675855912277",
+    "project_id": "dlivry-b7373",
+    "storage_bucket": "dlivry-b7373.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675855912277:android:eb5a8166df22b1e83973dc",
+        "android_client_info": {
+          "package_name": "com.example.dlivry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675855912277-rkfkv08tg00i7qdkmaao0gnopf8opque.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZp4fbU19BKn3UXAsBAXuBNRGAXp6paQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675855912277-rkfkv08tg00i7qdkmaao0gnopf8opque.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

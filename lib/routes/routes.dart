@@ -9,6 +9,6 @@ Map<String, Widget Function(BuildContext)> myRoutes(BuildContext context) {
   return {
     RoutePath.splash: (context) => const SplashScreen(),
     RoutePath.onboarding: (context) => const Onboading(),
-    RoutePath.login: (context) => const LoginScreen(),
+    RoutePath.login: (context) => const Login(),
   };
 }

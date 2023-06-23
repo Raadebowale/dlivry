@@ -9,10 +9,12 @@ class LongButton extends StatelessWidget {
     required this.width,
     required this.onpressed,
     this.active = true,
+    this.alignment,
   });
 
   final VoidCallback onpressed;
   final String text;
+  final AlignmentGeometry? alignment;
   final double width;
   final bool active;
 
@@ -21,7 +23,7 @@ class LongButton extends StatelessWidget {
     return GestureDetector(
       onTap: onpressed,
       child: Container(
-        alignment: Alignment.bottomCenter,
+        alignment: alignment ?? Alignment.bottomCenter,
         height: 50.0,
         width: width,
         decoration: BoxDecoration(

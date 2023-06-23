@@ -1,6 +1,5 @@
 import 'package:dlivry/routes/route_path.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../widgets/app_logo.dart';
 // import '../utils/app_colors.dart';
 // import '../utils/app_images.dart';
@@ -36,11 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
-        child: Column(
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const <Widget>[
-            AppLogo(size: 230),
+          children: <Widget>[
+            AppLogo(size: 200),
             /* Text(
               'DLIVRY',
               style: TextStyle(
