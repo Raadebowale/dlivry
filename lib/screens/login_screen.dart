@@ -1,3 +1,4 @@
+import 'package:dlivry/routes/route_path.dart';
 import 'package:dlivry/utils/app_colors.dart';
 import 'package:dlivry/utils/app_images.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,10 @@ class _LoginState extends State<Login> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, RoutePath.forgotpassword);
+                        },
                         child: const Text(
                           "Forgot Password?",
                           style: TextStyle(
@@ -71,7 +75,12 @@ class _LoginState extends State<Login> {
                     const SizedBox(height: 35),
                     Center(
                       child: LongButton(
-                        onpressed: () {},
+                        onpressed: () {
+                          Navigator.pushReplacementNamed(
+                            context,
+                            RoutePath.main,
+                          );
+                        },
                         alignment: Alignment.center,
                         active: false,
                         text: 'Login',
@@ -134,7 +143,10 @@ class _LoginState extends State<Login> {
                         ),
                         const SizedBox(width: 5),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushReplacementNamed(
+                                context, RoutePath.register);
+                          },
                           child: const Text(
                             "Register Now",
                             style: TextStyle(

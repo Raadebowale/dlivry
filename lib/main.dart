@@ -29,6 +29,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
+        ChangeNotifierProvider(create: (context) => DbProvider()),
+      ],
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'DLIVRY',
@@ -40,10 +44,6 @@ class MyApp extends StatelessWidget {
         initialRoute: RoutePath.splash,
         routes: myRoutes(context),
       ),
-      providers: [
-        ChangeNotifierProvider(create: (context) => AuthProvider()),
-        ChangeNotifierProvider(create: (context) => DbProvider()),
-      ],
     );
   }
 }

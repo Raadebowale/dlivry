@@ -61,7 +61,7 @@ class _OnboadingState extends State<Onboading> {
         itemCount: pages.length,
         itemBuilder: (context, currentindex) {
           return pages[currentindex];
-        },
+          },
       ),
     );
   }
@@ -153,7 +153,7 @@ class BoardingContainer extends StatelessWidget {
                   SmoothPageIndicator(
                     controller: controller,
                     count: 3,
-                    effect: WormEffect(),
+                    effect: const WormEffect(),
                   ),
                   /* DotsIndicator(
                   dotsCount: 10,

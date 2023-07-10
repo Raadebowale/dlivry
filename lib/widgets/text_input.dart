@@ -10,11 +10,15 @@ class TextInput extends StatefulWidget {
     this.password = false,
     this.icon,
     this.controller,
+    this.validator,
+    this.readOnly = false,
   }) : super(key: key);
 
   final String hint;
   final bool password;
   final IconData? icon;
+  final bool readOnly;
+  final String? Function(String?)? validator;
   final TextEditingController? controller;
 
   @override
@@ -23,6 +27,7 @@ class TextInput extends StatefulWidget {
 
 class _TextInputState extends State<TextInput> {
   bool _isFieldFocused = false;
+  bool hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +51,13 @@ class _TextInputState extends State<TextInput> {
             ),
           const SizedBox(width: 10),
           Expanded(
-            child: TextField(
+            child: TextFormField(
+              validator: widget.validator,
+              controller: widget.controller,
               style: const TextStyle(
                 fontSize: 18.0,
                 color: AppColors.textBlack,
               ),
-              controller: widget.controller,
               decoration: InputDecoration(
                   hintText: widget.hint,
                   hintStyle: const TextStyle(
@@ -63,14 +69,18 @@ class _TextInputState extends State<TextInput> {
                   _isFieldFocused = value.isNotEmpty;
                 });
               },
-              obscureText: widget.password,
+              obscureText: widget.password ? hidePassword : false,
             ),
           ),
           if (widget.password)
             IconButton(
-              onPressed: () {},
-              icon: const FaIcon(
-                FontAwesomeIcons.eyeSlash,
+              onPressed: () {
+                setState(() {
+                  hidePassword = !hidePassword;
+                });
+              },
+              icon: FaIcon(
+                hidePassword ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash,
                 color: AppColors.lightText,
               ),
             ),
