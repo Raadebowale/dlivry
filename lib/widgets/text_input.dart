@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:dlivry/providers/auth_provider.dart';
 
 import '../utils/app_colors.dart';
 
@@ -8,16 +11,22 @@ class TextInput extends StatefulWidget {
     Key? key,
     required this.hint,
     this.password = false,
+    this.number = false,
     this.icon,
     this.controller,
     this.validator,
-    this.readOnly = false,
+    this.onpressed,
+    // this.expands = false,
+    this.trailingIcon,
   }) : super(key: key);
 
   final String hint;
   final bool password;
+  final bool number;
   final IconData? icon;
-  final bool readOnly;
+  final IconData? trailingIcon;
+  final VoidCallback? onpressed;
+  // final bool expands;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
 
@@ -31,6 +40,7 @@ class _TextInputState extends State<TextInput> {
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthProvider>(context);
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -52,6 +62,9 @@ class _TextInputState extends State<TextInput> {
           const SizedBox(width: 10),
           Expanded(
             child: TextFormField(
+              keyboardType: widget.number ? TextInputType.phone : null,
+              // expands: widget.expands,
+              // maxLines: widget.expands ? null : 1,
               validator: widget.validator,
               controller: widget.controller,
               style: const TextStyle(
@@ -64,12 +77,17 @@ class _TextInputState extends State<TextInput> {
                     color: AppColors.lightText,
                   ),
                   border: InputBorder.none),
+              obscureText: widget.password ? hidePassword : false,
               onChanged: (value) {
                 setState(() {
                   _isFieldFocused = value.isNotEmpty;
+                  auth.setButton(value.isNotEmpty);
+                  // auth.buttonActive = value.isNotEmpty;
+                  // widget.buttonActive = true;
                 });
               },
-              obscureText: widget.password ? hidePassword : false,
+              onTap: widget.onpressed,
+              readOnly: widget.onpressed != null ? true : false,
             ),
           ),
           if (widget.password)
@@ -84,6 +102,14 @@ class _TextInputState extends State<TextInput> {
                 color: AppColors.lightText,
               ),
             ),
+          if (widget.onpressed != null || widget.trailingIcon != null)
+            FaIcon(
+              widget.trailingIcon ?? FontAwesomeIcons.chevronDown,
+              color: AppColors.lightText,
+            ),
+          /*  if (widget.trailing != null)
+            widget.trailing!,
+           */
         ],
       ),
     );

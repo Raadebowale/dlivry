@@ -42,6 +42,8 @@ dependencies:
   cloud_firestore: ^4.8.1
   pinput: ^2.2.31
   animated_bottom_navigation_bar: ^1.2.0
+  csc_picker: ^0.2.7
+  # geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:

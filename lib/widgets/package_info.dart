@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -42,8 +43,8 @@ class PackageInfo extends StatelessWidget {
               color: border ? AppColors.lightText : Colors.white,
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: const FaIcon(
-              FontAwesomeIcons.cube,
+            child: const Icon(
+              CupertinoIcons.cube_box,
               color: AppColors.textBlack,
             ),
           ),

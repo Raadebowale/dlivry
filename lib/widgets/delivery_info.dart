@@ -3,10 +3,43 @@ import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
 
-class DeliveryInfo extends StatelessWidget {
+class DeliveryInfo extends StatefulWidget {
   const DeliveryInfo({
     super.key,
   });
+
+  @override
+  State<DeliveryInfo> createState() => _DeliveryInfoState();
+}
+
+class _DeliveryInfoState extends State<DeliveryInfo> {
+  final int _currentStep = 0;
+  final List<Step> _steps = [
+    const Step(
+      title: Icon(Icons.circle),
+      content: Text(
+        "Apple Store, California, USA",
+        style: TextStyle(
+          color: AppColors.textBlack,
+          fontSize: 17,
+          fontWeight: FontWeight.w700,
+        ),
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+    const Step(
+      title: Icon(Icons.circle),
+      content: const Text(
+        "Unicorn Store, Mumbai, India",
+        style: TextStyle(
+          color: AppColors.textBlack,
+          fontSize: 17,
+          fontWeight: FontWeight.w700,
+        ),
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,32 +50,38 @@ class DeliveryInfo extends StatelessWidget {
         color: AppColors.lightBg,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          PackageInfo(
+          const PackageInfo(
             border: false,
             productName: "MackBook pro 13 inch (Gray)",
             trackingId: 'U08765487CE',
           ),
-          SizedBox(height: 10),
-          Divider(
+          const SizedBox(height: 10),
+          const Divider(
             thickness: 0.5,
             color: AppColors.lightText,
           ),
-          Row(
+          Stepper(
+            steps: _steps,
+            currentStep: _currentStep,
+            type: StepperType.vertical,
+          ),
+          /* Row(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                 
+                  /* const Text(
                     "From",
                     style: TextStyle(
                       color: AppColors.textBlack,
                       fontSize: 14,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     "Apple Store, California, USA",
                     style: TextStyle(
@@ -60,8 +99,8 @@ class DeliveryInfo extends StatelessWidget {
                       fontSize: 14,
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     "Unicorn Store, Mumbai, India",
                     style: TextStyle(
                       color: AppColors.textBlack,
@@ -69,18 +108,18 @@ class DeliveryInfo extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                     overflow: TextOverflow.ellipsis,
-                  ),
+                  ), */
                 ],
               ),
             ],
-          ),
-          SizedBox(height: 10),
-          Divider(
+          ), */
+          const SizedBox(height: 10),
+          const Divider(
             thickness: 1,
             color: AppColors.lightText,
           ),
-          SizedBox(height: 10),
-          Row(
+          const SizedBox(height: 10),
+          const Row(
             children: [
               Text(
                 "Status:",

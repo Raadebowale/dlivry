@@ -1,6 +1,7 @@
 import 'package:dlivry/utils/app_colors.dart';
-import 'package:dlivry/widgets/package_info.dart';
+// import 'package:dlivry/widgets/package_info.dart';
 import 'package:dlivry/widgets/subheader.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -84,137 +85,145 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(15.0),
-                      decoration: BoxDecoration(
-                        color: AppColors.lightBg,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Track your package',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+              child: RawScrollbar(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          color: AppColors.lightBg,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Track your package',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 8),
-                          const Text(
-                            'Please enter your tracking number',
-                            style: TextStyle(
-                              fontSize: 14,
+                            const SizedBox(height: 8),
+                            const Text(
+                              'Please enter your tracking number',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 18),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: const Row(
-                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                    // crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      SizedBox(width: 10),
-                                      FaIcon(FontAwesomeIcons.gift),
-                                      SizedBox(width: 10),
-                                      Expanded(
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            // prefixIcon: FaIcon(FontAwesomeIcons.boxArchive),
-                                            hintText: "Tracking Number",
-                                            hintStyle: TextStyle(
-                                                color: AppColors.lightText),
-                                            border: InputBorder.none,
+                            const SizedBox(height: 18),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      // mainAxisAlignment: MainAxisAlignment.center,
+                                      // crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(width: 10),
+                                        Icon(CupertinoIcons.cube_box),
+                                        SizedBox(width: 10),
+                                        Expanded(
+                                          child: TextField(
+                                            decoration: InputDecoration(
+                                              // prefixIcon: FaIcon(FontAwesomeIcons.boxArchive),
+                                              hintText: "Tracking Number",
+                                              hintStyle: TextStyle(
+                                                  color: AppColors.lightText),
+                                              border: InputBorder.none,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(width: 5),
-                              Container(
-                                width: 45,
-                                height: 45,
-                                decoration: BoxDecoration(
-                                  color: AppColors.primary,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Center(
-                                  child: FaIcon(
-                                    FontAwesomeIcons.qrcode,
-                                    color: Colors.white,
+                                const SizedBox(width: 5),
+                                Container(
+                                  width: 45,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primary,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: const Center(
+                                    child: FaIcon(
+                                      FontAwesomeIcons.qrcode,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      // Our Service
+                      const Subheader(title: "Our Service"),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: ServiceContainer(
+                              onpressed: () {},
+                              title: 'Courier',
+                              icon: FontAwesomeIcons.truckFast,
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: ServiceContainer(
+                              onpressed: () {},
+                              title: 'Tracking',
+                              icon: FontAwesomeIcons.mapLocationDot,
+                            ),
+                          ),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    Subheader(
-                      title: "Recent Deliveries",
-                      onpressed: () {},
-                    ),
-                    const SizedBox(height: 10),
-                    const DeliveryInfo(),
-                    const SizedBox(height: 30),
-                    const Subheader(title: "Our Service"),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: ServiceContainer(
-                            onpressed: () {},
-                            title: 'Courier',
-                            icon: FontAwesomeIcons.truckFast,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: ServiceContainer(
-                            onpressed: () {},
-                            title: 'Tracking',
-                            icon: FontAwesomeIcons.mapLocationDot,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Subheader(
-                      title: "Recent Packages",
-                      onpressed: () {},
-                    ),
-                    const SizedBox(height: 10),
-                    const PackageInfo(
-                      productName: "Dell Backpack",
-                      trackingId: "TY9860036NM",
-                      price: "350",
-                      status: 'Pending',
-                    ),
-                    const SizedBox(height: 15),
-                    const PackageInfo(
-                      productName: "Iphone 14 pro max(256 gb)",
-                      trackingId: "NY3456721VB",
-                      price: "1250",
-                      status: 'Pending',
-                    ),
-                    const SizedBox(height: 10),
-                  ],
+                      const SizedBox(height: 40),
+
+                      // Recent Deliveries
+                      Subheader(
+                        title: "Recent Deliveries",
+                        onpressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+
+                      // Delivery Information
+                      const DeliveryInfo(),
+
+                      const SizedBox(height: 50),
+                      /* Subheader(
+                        title: "Recent Packages",
+                        onpressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      const PackageInfo(
+                        productName: "Dell Backpack",
+                        trackingId: "TY9860036NM",
+                        price: "350",
+                        status: 'Pending',
+                      ),
+                      const SizedBox(height: 15),
+                      const PackageInfo(
+                        productName: "Iphone 14 pro max(256 gb)",
+                        trackingId: "NY3456721VB",
+                        price: "1250",
+                        status: 'Pending',
+                      ),
+                      const SizedBox(height: 10), */
+                    ],
+                  ),
                 ),
               ),
             )

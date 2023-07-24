@@ -21,16 +21,16 @@ class LongButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onpressed,
-      child: Container(
-        alignment: alignment ?? Alignment.bottomCenter,
-        height: 50.0,
-        width: width,
-        decoration: BoxDecoration(
-          color: active ? AppColors.primary : AppColors.disabled,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Center(
+      onTap: active ? onpressed : null,
+      child: Center(
+        child: Container(
+          alignment: alignment ?? Alignment.center,
+          height: 50.0,
+          width: width,
+          decoration: BoxDecoration(
+            color: active ? AppColors.primary : AppColors.disabled,
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Text(
             text,
             style: TextStyle(

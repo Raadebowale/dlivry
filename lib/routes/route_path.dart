@@ -7,6 +7,8 @@ class RoutePath {
   static const enterotp = '/enterotp';
   static const newpassword = '/newpassword';
   static const main = '/main-activity';
+  static const pickup = '/pickup';
+  static const sendpackage = '/sendpackage';
   static const setup = '/setup';
   static const accountsuccess = '/accountsuccess';
   static const budget = '/budget';
