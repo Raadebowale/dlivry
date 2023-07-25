@@ -1,6 +1,7 @@
 import 'package:dlivry/screens/enter_otp.dart';
 import 'package:dlivry/screens/forgot_password.dart';
 import 'package:dlivry/screens/login_screen.dart';
+import 'package:dlivry/screens/mainactivity/components/edit_profile.dart';
 import 'package:dlivry/screens/mainactivity/components/pickup_address.dart';
 import 'package:dlivry/screens/mainactivity/main_activity.dart';
 
@@ -25,5 +26,6 @@ Map<String, Widget Function(BuildContext)> myRoutes(BuildContext context) {
     RoutePath.main: (context) => const MainActivity(),
     RoutePath.sendpackage: (context) => const SendPackage(),
     RoutePath.pickup: (context) => const PickupAddress(),
+    RoutePath.editprofile: (context) => const EditProfile(),
   };
 }

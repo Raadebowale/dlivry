@@ -1,3 +1,4 @@
+import 'package:dlivry/screens/mainactivity/components/pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
@@ -20,11 +21,11 @@ class _MainActivityState extends State<MainActivity> {
   final PageStorageBucket bucket = PageStorageBucket();
   @override
   Widget build(BuildContext context) {
-    final List<Widget> pages =  [
+    final List<Widget> pages = [
       const HomeScreen(),
       Container(),
       Container(),
-      Container(),
+      const Profile(),
     ];
     return Scaffold(
       body: pages[currentIndex],
@@ -32,6 +33,7 @@ class _MainActivityState extends State<MainActivity> {
         onPressed: () {
           Navigator.pushNamed(context, RoutePath.sendpackage);
         },
+        backgroundColor: AppColors.primary,
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

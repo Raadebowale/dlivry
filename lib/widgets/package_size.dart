@@ -10,52 +10,46 @@ class PackageSize extends StatefulWidget {
     required this.icon,
     required this.text,
     required this.index,
-    this.onpressed,
+    // this.onpressed,
   });
 
   final IconData icon;
   final String text;
   final int index;
-  final Function? onpressed;
+  // final Function? onpressed;
 
   @override
   State<PackageSize> createState() => _PackageSizeState();
 }
 
 class _PackageSizeState extends State<PackageSize> {
-  bool selected = false;
+  // bool selected = false;
   int selectedContainer = 0;
-
-  void selectContainer(int index) {
-    setState(() {
-      selectedContainer = index;
-      selected = !selected;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     // bool active = selected;
+
+    void selectContainer(int index) {
+      setState(() {
+        selectedContainer = index;
+        // selected = !selected;
+      });
+    }
+
     return Expanded(
       child: GestureDetector(
         onTap: () {
           selectContainer(widget.index);
-          /* if (selectedContainer == widget.index) {
-            setState(() {
-              selected = true;
-            });
-          } else {
-            setState(() {
-              selected = false;
-            });
-          } */
         },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             border: Border.all(
-              color: selected ? AppColors.primary : AppColors.lightText,
+              color: selectedContainer == widget.index
+                  ? AppColors.primary
+                  : AppColors.lightText,
             ),
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -66,14 +60,18 @@ class _PackageSizeState extends State<PackageSize> {
               FaIcon(
                 widget.icon,
                 size: 25,
-                color: selected ? AppColors.primary : AppColors.textBlack,
+                color: selectedContainer == widget.index
+                    ? AppColors.primary
+                    : AppColors.textBlack,
               ),
               const SizedBox(height: 5),
               Text(
                 widget.text,
                 style: TextStyle(
                   fontSize: 13,
-                  color: selected ? AppColors.primary : AppColors.textBlack,
+                  color: selectedContainer == widget.index
+                      ? AppColors.primary
+                      : AppColors.textBlack,
                 ),
               ),
             ],

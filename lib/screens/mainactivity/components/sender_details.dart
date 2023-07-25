@@ -9,7 +9,8 @@ import 'package:dlivry/widgets/subheader.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SenderDetails extends StatefulWidget {
-  const SenderDetails({super.key});
+  const SenderDetails({super.key, required this.onpressed});
+  final VoidCallback onpressed;
 
   @override
   State<SenderDetails> createState() => _SenderDetailsState();
@@ -96,37 +97,23 @@ class _SenderDetailsState extends State<SenderDetails> {
           title: "Package Size",
         ),
         const SizedBox(height: 10),
-        Row(
+        const Row(
           children: [
             PackageSize(
-              // onpressed: selectContainer(0),
+              
               icon: FontAwesomeIcons.box,
               // Icons.archive,
               text: "< 1KG",
               index: 0,
             ),
-            const SizedBox(width: 15),
+            SizedBox(width: 15),
             PackageSize(
-              onpressed: (selectedContainer) => {
-                setState(() {
-                  // selectContainer(widget.index);
-                  // index = 1;
-                  selectedContainer = 1;
-                })
-              },
               icon: FontAwesomeIcons.boxOpen,
               text: "3KG - 10KG",
               index: 1,
             ),
-            const SizedBox(width: 15),
+            SizedBox(width: 15),
             PackageSize(
-              onpressed: (selectedContainer) => {
-                setState(() {
-                  // selectContainer(widget.index);
-                  // index = 2;
-                  selectedContainer = 2;
-                })
-              },
               icon: FontAwesomeIcons.boxesStacked,
               text: "> 10KG",
               index: 2,
@@ -142,7 +129,8 @@ class _SenderDetailsState extends State<SenderDetails> {
           hint: "Select Delivery Type",
           onpressed: () {},
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 15),
+        //TODO: Fix the expanding message
         /* TextInput(
           hint: "Enter Message",
          
@@ -152,8 +140,8 @@ class _SenderDetailsState extends State<SenderDetails> {
         Align(
           alignment: Alignment.bottomCenter,
           child: LongButton(
-            onpressed: () {},
-            active: false,
+            onpressed: widget.onpressed,
+            active: true, // TODO: Add the validation
             text: 'Next',
             width: size.width * 0.9,
           ),

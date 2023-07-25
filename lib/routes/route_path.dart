@@ -9,7 +9,7 @@ class RoutePath {
   static const main = '/main-activity';
   static const pickup = '/pickup';
   static const sendpackage = '/sendpackage';
-  static const setup = '/setup';
-  static const accountsuccess = '/accountsuccess';
-  static const budget = '/budget';
+  static const editprofile = '/editprofile';
+  // static const accountsuccess = '/accountsuccess';
+  // static const budget = '/budget';
 }

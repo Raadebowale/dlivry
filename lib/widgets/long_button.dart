@@ -10,6 +10,7 @@ class LongButton extends StatelessWidget {
     required this.onpressed,
     this.active = true,
     this.alignment,
+    this.icon,
   });
 
   final VoidCallback onpressed;
@@ -17,6 +18,7 @@ class LongButton extends StatelessWidget {
   final AlignmentGeometry? alignment;
   final double width;
   final bool active;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +33,23 @@ class LongButton extends StatelessWidget {
             color: active ? AppColors.primary : AppColors.disabled,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Text(
-            text,
-            style: TextStyle(
-              color: active ? Colors.white : AppColors.smallgreyText,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (icon != null)
+                Icon(
+                  icon,
+                  color: Colors.white,
+                  // size: 25,
+                ),
+              const SizedBox(width: 5),
+              Text(
+                text,
+                style: TextStyle(
+                  color: active ? Colors.white : AppColors.smallgreyText,
+                ),
+              ),
+            ],
           ),
         ),
       ),

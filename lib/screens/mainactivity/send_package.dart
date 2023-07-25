@@ -16,15 +16,22 @@ class _SendPackageState extends State<SendPackage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController addressController = TextEditingController();
-
-  List<Widget> pages = [
-    SenderDetails(),
-    ReceiverDetails(),
-  ];
+  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
-    int currentPage = 0;
+    List<Widget> pages = [
+      SenderDetails(
+        onpressed: () {
+          setState(() {
+            currentPage = 1;
+          });
+        },
+      ),
+      ReceiverDetails(
+        onpressed: () {},
+      ),
+    ];
     // Size size = MediaQuery.of(context).size;
     // final padding = MediaQuery.of(context).padding;
     return Scaffold(
