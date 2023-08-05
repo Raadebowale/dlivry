@@ -1,3 +1,4 @@
+import 'package:dlivry/providers/auth_provider.dart';
 import 'package:dlivry/utils/validator.dart';
 import 'package:dlivry/widgets/text_input.dart';
 // import 'package:flutter/cupertino.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:dlivry/widgets/long_button.dart';
 import 'package:dlivry/utils/app_colors.dart';
+import 'package:provider/provider.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -21,6 +23,12 @@ class _EditProfileState extends State<EditProfile> {
   TextEditingController passwordController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    populateUserData();
+  }
+
+  @override
   void dispose() {
     super.dispose();
     nameController.dispose();
@@ -29,10 +37,21 @@ class _EditProfileState extends State<EditProfile> {
     passwordController.dispose();
   }
 
+  populateUserData() {
+    AuthProvider auth = Provider.of<AuthProvider>(context, listen: false);
+    final user = auth.userSignedIn;
+    nameController.text = user!.fullName;
+    emailController.text = user.email;
+    phoneController.text = user.phone;
+    // ProfilePage.imagePath = user.profilePic;
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    // AuthProvider auth = Provider.of<AuthProvider>(context);
 
+    // final currentUser = auth.userSignedIn;
     // final padding = MediaQuery.of(context).padding;
     return Scaffold(
       appBar: AppBar(

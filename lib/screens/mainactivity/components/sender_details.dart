@@ -1,5 +1,7 @@
-import 'package:dlivry/routes/route_path.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:dlivry/providers/constant_provider.dart';
+import 'package:dlivry/routes/route_path.dart';
 
 import 'package:dlivry/widgets/long_button.dart';
 import 'package:dlivry/widgets/package_size.dart';
@@ -25,17 +27,9 @@ class _SenderDetailsState extends State<SenderDetails> {
 
   final TextEditingController addressController = TextEditingController();
 
-  int selectedContainer = 0;
-
-  void selectContainer(int index) {
-    setState(() {
-      // selected = active;
-      selectedContainer = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    ConstantProvider constant = Provider.of<ConstantProvider>(context);
     Size size = MediaQuery.of(context).size;
     // final padding = MediaQuery.of(context).padding;
 
@@ -87,36 +81,40 @@ class _SenderDetailsState extends State<SenderDetails> {
           onpressed: () {},
           trailingIcon: FontAwesomeIcons.clock,
         ),
-        const SizedBox(height: 15),
-        TextInput(
-          hint: "Select Consignment Type",
-          onpressed: () {},
-        ),
+
         const SizedBox(height: 25),
         const Subheader(
           title: "Package Size",
         ),
         const SizedBox(height: 10),
-        const Row(
+        Row(
           children: [
             PackageSize(
-              
+              onpressed: () {
+                constant.selectContainer(0);
+              },
               icon: FontAwesomeIcons.box,
               // Icons.archive,
               text: "< 1KG",
-              index: 0,
+              selected: constant.firstContainer,
             ),
-            SizedBox(width: 15),
+            const SizedBox(width: 15),
             PackageSize(
+              onpressed: () {
+                constant.selectContainer(1);
+              },
               icon: FontAwesomeIcons.boxOpen,
               text: "3KG - 10KG",
-              index: 1,
+              selected: constant.secondContainer,
             ),
-            SizedBox(width: 15),
+            const SizedBox(width: 15),
             PackageSize(
+              onpressed: () {
+                constant.selectContainer(2);
+              },
               icon: FontAwesomeIcons.boxesStacked,
               text: "> 10KG",
-              index: 2,
+              selected: constant.thirdContainer,
             ),
           ],
         ),

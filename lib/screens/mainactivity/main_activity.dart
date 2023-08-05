@@ -1,3 +1,4 @@
+import 'package:dlivry/screens/mainactivity/components/pages/order_history.dart';
 import 'package:dlivry/screens/mainactivity/components/pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _MainActivityState extends State<MainActivity> {
   Widget build(BuildContext context) {
     final List<Widget> pages = [
       const HomeScreen(),
-      Container(),
+      const OrderHistory(),
       Container(),
       const Profile(),
     ];

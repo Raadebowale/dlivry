@@ -132,15 +132,10 @@ class _PickupAddressState extends State<PickupAddress> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const TextInput(hint: "House number or Building name"),
+                    const TextInput(hint: "Apt./Building(Optional)"),
                     const SizedBox(height: 15),
-                    const TextInput(hint: "Landmark"),
-                    const SizedBox(height: 15),
-                    const TextInput(
-                      hint: "Enter Contact Number",
-                      number: true,
-                    ),
-                    SizedBox(height: size.height * 0.15),
+                    const TextInput(hint: "Landmark(Optional)"),
+                    const SizedBox(height: 25),
                     LongButton(
                       onpressed: () {
                         Navigator.pop(context);

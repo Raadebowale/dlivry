@@ -1,9 +1,12 @@
+import 'package:dlivry/providers/auth_provider.dart';
+import 'package:dlivry/providers/db_provider.dart';
 import 'package:dlivry/utils/app_colors.dart';
 // import 'package:dlivry/widgets/package_info.dart';
 import 'package:dlivry/widgets/subheader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../widgets/delivery_info.dart';
 import '../../../../widgets/service_container.dart';
@@ -18,6 +21,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    AuthProvider auth = Provider.of<AuthProvider>(context);
+    DbProvider db = Provider.of<DbProvider>(context);
+    final firstName = auth.userSignedIn!.fullName.split(' ')[0];
     // Size size = MediaQuery.of(context).size;
     final padding = MediaQuery.of(context).padding;
     return Scaffold(
@@ -46,20 +52,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(width: 15),
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    /* Text(
                       'Your Location',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 13,
                         color: AppColors.textBlack,
                       ),
-                    ),
-                    SizedBox(height: 2),
+                    ), */
+
+                    _getDayWidget(),
+                    const SizedBox(height: 2),
                     Text(
-                      'Ikeja, Lagos',
-                      style: TextStyle(
+                      'Hello, ${_capitalizeFirstLetter(firstName)}!',
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
                         color: AppColors.textBlack,
@@ -200,7 +208,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(height: 10),
 
                       // Delivery Information
-                      const DeliveryInfo(),
+                      const DeliveryInfo(
+                        productName: "MackBook pro 13 inch (Gray)",
+                        trackingId: 'U08765487CE',
+                        shippedFrom: "Apple Store, California, USA",
+                        shippedTo: "Unicorn Store, Mumbai, India",
+                        status: "Your package is in transit",
+                      ),
 
                       const SizedBox(height: 50),
                       /* Subheader(
@@ -232,4 +246,21 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+}
+
+Widget _getDayWidget() {
+  final now = DateTime.now();
+  if (now.hour < 12) {
+    return const Text('Good Morning 🌄');
+  } else if (now.hour > 11 && now.hour < 17) {
+    return const Text('Good Afternoon 🌞');
+  }
+  return const Text('Good Evening 🌙');
+}
+
+String _capitalizeFirstLetter(String firstName) {
+  final splittedName = firstName.split('');
+  final capitalName = splittedName[0].toUpperCase();
+  splittedName[0] = capitalName;
+  return splittedName.join();
 }

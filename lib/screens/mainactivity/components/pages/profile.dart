@@ -1,3 +1,4 @@
+import 'package:dlivry/providers/auth_provider.dart';
 import 'package:dlivry/routes/route_path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:dlivry/widgets/custom_tile.dart';
 import 'package:dlivry/widgets/long_button.dart';
 import 'package:dlivry/utils/app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -17,6 +19,9 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    AuthProvider auth = Provider.of<AuthProvider>(context);
+
+    final currentUser = auth.userSignedIn!;
     Size size = MediaQuery.of(context).size;
 
     // final padding = MediaQuery.of(context).padding;
@@ -85,18 +90,18 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
               const SizedBox(height: 10),
-              const Text(
-                "Rash Ade",
-                style: TextStyle(
+              Text(
+                currentUser.fullName,
+                style: const TextStyle(
                   color: AppColors.textBlack,
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 4),
-              const Text(
-                "rashade@gmail.com",
-                style: TextStyle(
+              Text(
+                currentUser.email,
+                style: const TextStyle(
                   color: AppColors.smallgreyText,
                   fontSize: 14,
                 ),
@@ -122,13 +127,13 @@ class _ProfileState extends State<Profile> {
                       title: "Edit Profile",
                       prefixIcon: FontAwesomeIcons.penToSquare,
                     ),
-                    const Divider(),
+                    /* const Divider(),
                     const SizedBox(height: 5),
                     CustomTile(
                       onpressed: () {},
                       title: "My Address",
                       prefixIcon: FontAwesomeIcons.locationPin,
-                    ),
+                    ), */
                     const Divider(),
                     const SizedBox(height: 5),
                     CustomTile(

@@ -6,7 +6,17 @@ import '../utils/app_colors.dart';
 class DeliveryInfo extends StatefulWidget {
   const DeliveryInfo({
     super.key,
+    required this.productName,
+    required this.shippedFrom,
+    required this.shippedTo,
+    required this.trackingId,
+    required this.status,
   });
+  final String productName;
+  final String trackingId;
+  final String shippedFrom;
+  final String shippedTo;
+  final String status;
 
   @override
   State<DeliveryInfo> createState() => _DeliveryInfoState();
@@ -53,28 +63,27 @@ class _DeliveryInfoState extends State<DeliveryInfo> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const PackageInfo(
+          PackageInfo(
             border: false,
-            productName: "MackBook pro 13 inch (Gray)",
-            trackingId: 'U08765487CE',
+            productName: widget.productName,
+            trackingId: widget.trackingId,
           ),
           const SizedBox(height: 10),
           const Divider(
             thickness: 0.5,
             color: AppColors.lightText,
           ),
-          Stepper(
+          /* Stepper(
             steps: _steps,
             currentStep: _currentStep,
             type: StepperType.vertical,
-          ),
-          /* Row(
+          ), */
+          Row(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 
-                  /* const Text(
+                  const Text(
                     "From",
                     style: TextStyle(
                       color: AppColors.textBlack,
@@ -83,16 +92,16 @@ class _DeliveryInfoState extends State<DeliveryInfo> {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    "Apple Store, California, USA",
-                    style: TextStyle(
+                    widget.shippedFrom,
+                    style: const TextStyle(
                       color: AppColors.textBlack,
                       fontSize: 17,
                       fontWeight: FontWeight.w700,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     "Shipped To",
                     style: TextStyle(
                       color: AppColors.textBlack,
@@ -100,38 +109,38 @@ class _DeliveryInfoState extends State<DeliveryInfo> {
                     ),
                   ),
                   const SizedBox(height: 5),
-                  const Text(
-                    "Unicorn Store, Mumbai, India",
-                    style: TextStyle(
+                  Text(
+                    widget.shippedTo,
+                    style: const TextStyle(
                       color: AppColors.textBlack,
                       fontSize: 17,
                       fontWeight: FontWeight.w700,
                     ),
                     overflow: TextOverflow.ellipsis,
-                  ), */
+                  ),
                 ],
               ),
             ],
-          ), */
+          ),
           const SizedBox(height: 10),
           const Divider(
             thickness: 1,
             color: AppColors.lightText,
           ),
           const SizedBox(height: 10),
-          const Row(
+          Row(
             children: [
-              Text(
+              const Text(
                 "Status:",
                 style: TextStyle(
                   color: AppColors.textBlack,
                   fontSize: 15,
                 ),
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               Text(
-                "Your package is in transit",
-                style: TextStyle(
+                widget.status,
+                style: const TextStyle(
                   color: AppColors.textBlack,
                   fontSize: 17,
                   fontWeight: FontWeight.w700,

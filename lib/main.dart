@@ -1,4 +1,5 @@
 import 'package:dlivry/providers/auth_provider.dart';
+import 'package:dlivry/providers/constant_provider.dart';
 import 'package:dlivry/providers/db_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => DbProvider()),
+        ChangeNotifierProvider(create: (context) => ConstantProvider()),
       ],
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
