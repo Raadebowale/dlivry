@@ -33,22 +33,22 @@ class _NewPasswordState extends State<NewPassword> {
           children: [
             // const AppLogo(size: 70),
             // const SizedBox(height: 20),
-            Expanded(
+            const Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Subheader(
+                    Subheader(
                       title: "Enter New Password",
                       subtitle: "Please enter new password",
                     ),
-                    const SizedBox(height: 30),
+                    SizedBox(height: 30),
                     TextInput(
                       hint: "Enter New Password",
                       password: true,
                       icon: FontAwesomeIcons.lock,
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                     TextInput(
                       hint: "Re-Enter Password",
                       password: true,

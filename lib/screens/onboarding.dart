@@ -4,14 +4,14 @@ import 'package:dlivry/routes/route_path.dart';
 import 'package:dlivry/utils/app_images.dart';
 import '../widgets/boarding_container.dart';
 
-class Onboading extends StatefulWidget {
-  const Onboading({super.key});
+class Onboarding extends StatefulWidget {
+  const Onboarding({super.key});
 
   @override
-  State<Onboading> createState() => _OnboadingState();
+  State<Onboarding> createState() => _OnboardingState();
 }
 
-class _OnboadingState extends State<Onboading> {
+class _OnboardingState extends State<Onboarding> {
   double currentindex = 0;
   final pageController = PageController(initialPage: 0, keepPage: true);
   @override

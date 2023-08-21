@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:dlivry/providers/auth_provider.dart';
 import 'package:dlivry/routes/route_path.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'package:dlivry/widgets/custom_tile.dart';
 import 'package:dlivry/widgets/long_button.dart';

@@ -17,7 +17,7 @@ import 'route_path.dart';
 Map<String, Widget Function(BuildContext)> myRoutes(BuildContext context) {
   return {
     RoutePath.splash: (context) => const SplashScreen(),
-    RoutePath.onboarding: (context) => const Onboading(),
+    RoutePath.onboarding: (context) => const Onboarding(),
     RoutePath.login: (context) => const Login(),
     RoutePath.register: (context) => const Register(),
     RoutePath.forgotpassword: (context) => const ForgotPassword(),

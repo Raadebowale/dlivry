@@ -1,4 +1,3 @@
-import 'package:dlivry/routes/route_path.dart';
 import 'package:dlivry/widgets/long_button.dart';
 import 'package:dlivry/widgets/text_input.dart';
 import 'package:flutter/material.dart';

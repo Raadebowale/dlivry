@@ -46,6 +46,7 @@ dependencies:
   google_maps_flutter: ^2.4.0
   location: ^5.0.2+1
   geolocator: ^9.0.2
+  timeline_tile: ^2.0.0
   # geolocator: ^9.0.2
 
 dev_dependencies:

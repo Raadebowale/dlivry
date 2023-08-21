@@ -23,7 +23,7 @@ class DeliveryInfo extends StatefulWidget {
 }
 
 class _DeliveryInfoState extends State<DeliveryInfo> {
-  final int _currentStep = 0;
+  /* final int _currentStep = 0;
   final List<Step> _steps = [
     const Step(
       title: Icon(Icons.circle),
@@ -39,7 +39,7 @@ class _DeliveryInfoState extends State<DeliveryInfo> {
     ),
     const Step(
       title: Icon(Icons.circle),
-      content: const Text(
+      content: Text(
         "Unicorn Store, Mumbai, India",
         style: TextStyle(
           color: AppColors.textBlack,
@@ -49,7 +49,7 @@ class _DeliveryInfoState extends State<DeliveryInfo> {
         overflow: TextOverflow.ellipsis,
       ),
     ),
-  ];
+  ]; */
 
   @override
   Widget build(BuildContext context) {

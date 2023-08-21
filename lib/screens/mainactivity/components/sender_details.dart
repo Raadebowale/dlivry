@@ -6,7 +6,7 @@ import 'package:dlivry/routes/route_path.dart';
 import 'package:dlivry/widgets/long_button.dart';
 import 'package:dlivry/widgets/package_size.dart';
 import 'package:dlivry/widgets/text_input.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:dlivry/widgets/subheader.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -20,12 +20,18 @@ class SenderDetails extends StatefulWidget {
 
 class _SenderDetailsState extends State<SenderDetails> {
   final TextEditingController typeController = TextEditingController();
-
   final TextEditingController nameController = TextEditingController();
-
   final TextEditingController phoneController = TextEditingController();
-
   final TextEditingController addressController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    typeController.dispose();
+    nameController.dispose();
+    phoneController.dispose();
+    addressController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +49,43 @@ class _SenderDetailsState extends State<SenderDetails> {
         TextInput(
           hint: "Select Type",
           controller: typeController,
-          onpressed: () {},
+          onpressed: () {
+            DropdownMenu(
+              onSelected: (value) {
+                typeController.text = value!;
+              },
+              dropdownMenuEntries: const [
+                DropdownMenuEntry(
+                  value: "Express",
+                  label: "Express",
+                ),
+                DropdownMenuEntry(
+                  value: "Next Day",
+                  label: "Next Day",
+                ),
+              ],
+            );
+          },
+        ),
+        const SizedBox(height: 25),
+        DropdownButton(
+          items: const [
+            DropdownMenuItem(
+              value: "Express",
+              child: Text("Express"),
+            ),
+            DropdownMenuItem(
+              value: "Next Day",
+              child: Text("Next Day"),
+            ),
+            DropdownMenuItem(
+              value: "Inter State",
+              child: Text("Inter State"),
+            ),
+          ],
+          onChanged: (value) {
+            typeController.text = value!;
+          },
         ),
         const SizedBox(height: 25),
         const Subheader(

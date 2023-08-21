@@ -76,7 +76,7 @@ class PackageInfo extends StatelessWidget {
                             ),
                             overflow: TextOverflow.ellipsis,
                           )
-                        : FaIcon(FontAwesomeIcons.ellipsisVertical),
+                        : const FaIcon(FontAwesomeIcons.ellipsisVertical),
                   ],
                 ),
                 const SizedBox(height: 5),

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:dlivry/widgets/product_progress.dart';
 import 'package:dlivry/utils/app_colors.dart';
 
-import 'package:dlivry/routes/route_path.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class OrderHistory extends StatefulWidget {
   const OrderHistory({super.key});

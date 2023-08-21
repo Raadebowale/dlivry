@@ -1,6 +1,7 @@
 // import 'dart:convert';
 
 class DeliveryModel {
+  final String shipmentType;
   final String senderName;
   final String senderMobileNumber;
   final String senderAddress;
@@ -19,6 +20,7 @@ class DeliveryModel {
   final String? userId;
 
   DeliveryModel({
+    required this.shipmentType,
     required this.senderName,
     required this.senderMobileNumber,
     required this.senderAddress,
@@ -39,6 +41,7 @@ class DeliveryModel {
 
   static toModel(Map<String, dynamic> json) {
     return DeliveryModel(
+      shipmentType: json['shipmentType'],
       senderName: json['senderName'],
       senderMobileNumber: json['senderMobileNumber'],
       senderAddress: json['senderAddress'],
@@ -56,6 +59,7 @@ class DeliveryModel {
 
   static toJson(DeliveryModel delivery) {
     return {
+      "shipmentType": delivery.shipmentType,
       "senderName": delivery.senderName,
       "senderMobileNumber": delivery.senderMobileNumber,
       "senderAddress": delivery.senderAddress,

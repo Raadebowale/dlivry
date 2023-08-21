@@ -1,6 +1,6 @@
 import 'package:dlivry/providers/auth_provider.dart';
-import 'package:dlivry/providers/db_provider.dart';
 import 'package:dlivry/utils/app_colors.dart';
+// import 'package:dlivry/providers/db_provider.dart';
 // import 'package:dlivry/widgets/package_info.dart';
 import 'package:dlivry/widgets/subheader.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     AuthProvider auth = Provider.of<AuthProvider>(context);
-    DbProvider db = Provider.of<DbProvider>(context);
+    // DbProvider db = Provider.of<DbProvider>(context);
     final firstName = auth.userSignedIn!.fullName.split(' ')[0];
     // Size size = MediaQuery.of(context).size;
     final padding = MediaQuery.of(context).padding;

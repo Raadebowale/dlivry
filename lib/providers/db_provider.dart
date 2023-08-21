@@ -24,6 +24,7 @@ class DbProvider extends ChangeNotifier {
 
   addDelivery(
     BuildContext context, {
+    required String shipmentType,
     required String senderName,
     required String senderMobileNumber,
     required String senderAddress,
@@ -45,6 +46,7 @@ class DbProvider extends ChangeNotifier {
 
     try {
       final myDelivery = DeliveryModel(
+          shipmentType: shipmentType,
           senderName: senderName,
           senderMobileNumber: senderMobileNumber,
           senderAddress: senderAddress,
